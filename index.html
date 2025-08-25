@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dona Pimentinha - Artigos de Fetiches Eróticos. Descubra nossa coleção exclusiva de acessórios BDSM, algemas, chicotes e velas sensoriais com total discrição.">
+    <meta name="keywords" content="fetiches eróticos, Dona Pimentinha, algemas e chicotes nichados, acessórios BDSM exclusivos, velas sensoriais, artigos íntimos">
+    <meta name="author" content="Dona Pimentinha">
+    <title>Dona Pimentinha - Artigos de Fetiches Eróticos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FF4500' d='M50 10c-8 0-15 6-15 15 0 12 8 20 15 25 7-5 15-13 15-25 0-9-7-15-15-15z'/%3E%3Cpath fill='%23D2691E' d='M45 85c0-15 5-25 5-25s5 10 5 25c0 8-5 8-5 8s-5 0-5-8z'/%3E%3C/svg%3E">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>🌶️ Dona Pimentinha</h1>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#produtos" class="nav-link">Produtos</a>
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                    <a href="#contato" class="nav-link">Contato</a>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar produtos..." id="search-input">
+                    <button type="button" id="search-btn">🔍</button>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Apimente seus desejos mais intensos</h2>
+            <p class="hero-subtitle">Descubra nossa coleção exclusiva de artigos íntimos com total discrição e qualidade premium</p>
+            <button class="cta-button" onclick="document.getElementById('produtos').scrollIntoView({behavior: 'smooth'})">Explorar Produtos</button>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- Produtos Section -->
+    <section id="produtos" class="produtos">
+        <div class="container">
+            <h2 class="section-title">Nossa Coleção Exclusiva</h2>
+            <div class="produtos-grid">
+                <div class="produto-card" data-category="algemas">
+                    <div class="produto-image">
+                        <img src="https://loungerieqa.vtexassets.com/arquivos/ids/600152/Algemas-com-Conector-em-Couro-Rosa.png' viewBox='0 0 300 200'%3E%3Crect fill='%23f0f0f0' width='300' height='200'/%3E%3Ctext x='150' y='100' text-anchor='middle' fill='%23666' font-family='Arial' font-size='14'%3EAlgemas de Couro%3C/text%3E%3C/svg%3E" alt="Algemas de Couro Premium">
+                        <div class="produto-overlay">
+                            <button class="btn-detalhes">Mais Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="produto-info">
+                        <h3>Algemas de Couro Premium</h3>
+                        <p>Algemas artesanais em couro legítimo com forro macio para máximo conforto</p>
+                        <span class="preco">R$ 89,90</span>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-category="chicotes">
+                    <div class="produto-image">
+                        <img src="https://png.pngtree.com/png-clipart/20210502/original/pngtree-textile-toy-whipping-whip-png-image_6267251.jpg" alt="Chicote Sensorial">
+                        <div class="produto-overlay">
+                            <button class="btn-detalhes">Mais Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="produto-info">
+                        <h3>Chicote Sensorial</h3>
+                        <p>Chicote de múltiplas tiras para experiências sensoriais intensas</p>
+                        <span class="preco">R$ 129,90</span>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-category="velas">
+                    <div class="produto-image">
+                        <img src="https://www.inusual.com.br/cdn/shop/files/VelaAromaticaFigoeRosas1.png" alt="Velas Sensoriais">
+                        <div class="produto-overlay">
+                            <button class="btn-detalhes">Mais Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="produto-info">
+                        <h3>Velas Sensoriais</h3>
+                        <p>Kit com 3 velas de baixa temperatura para jogos sensoriais seguros</p>
+                        <span class="preco">R$ 59,90</span>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-category="mascaras">
+                    <div class="produto-image">
+                        <img src="https://images.tcdn.com.br/img/img_prod/388802/mascara_coelho_branco_para_fantasias_27021_2_ef530a9b6041f8289233923397c41baa.png" alt="Máscara de Coelinha">
+                        <div class="produto-overlay">
+                            <button class="btn-detalhes">Mais Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="produto-info">
+                        <h3>Máscara de Coelinha</h3>
+                        <p>Máscara sensual de coelinha em branco para fantasias especiais</p>
+                        <span class="preco">R$ 45,90</span>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-category="cordas">
+                    <div class="produto-image">
+                        <img src="https://cdn.awsli.com.br/2500x2500/1210/1210218/produto/246442105/corda-torcida-branca-produtos-rwwdjcbu0x.png" alt="Cordas de Seda">
+                        <div class="produto-overlay">
+                            <button class="btn-detalhes">Mais Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="produto-info">
+                        <h3>Cordas de Seda</h3>
+                        <p>Cordas macias em seda natural, ideais para iniciantes</p>
+                        <span class="preco">R$ 79,90</span>
+                    </div>
+                </div>
+
+                <div class="produto-card" data-category="acessorios">
+                    <div class="produto-image">
+                        <img src="https://www.xpressharness.com/cdn/shop/files/1_370fe56e-0124-4ae7-9f73-c744f63fbafa.webp" alt="Kit Iniciante">
+                        <div class="produto-overlay">
+                            <button class="btn-detalhes">Mais Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="produto-info">
+                        <h3>Kit Iniciante</h3>
+                        <p>Kit completo para quem está começando a explorar novos prazeres</p>
+                        <span class="preco">R$ 199,90</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <div class="sobre-content">
+                <h2 class="section-title">Sobre a Dona Pimentinha</h2>
+                <p>Somos especialistas em artigos íntimos de alta qualidade, focados em proporcionar experiências únicas e seguras. Nossa missão é oferecer produtos cuidadosamente selecionados para quem busca explorar novos prazeres com total discrição.</p>
+                <p>Todos os nossos produtos são escolhidos pensando na segurança, qualidade e satisfação dos nossos clientes. Garantimos embalagens discretas e atendimento personalizado para que você se sinta confortável em todas as etapas da sua compra.</p>
+                <div class="diferenciais">
+                    <div class="diferencial">
+                        <h4>🔒 Discrição Total</h4>
+                        <p>Embalagens neutras e entrega discreta</p>
+                    </div>
+                    <div class="diferencial">
+                        <h4>✨ Qualidade Premium</h4>
+                        <p>Produtos cuidadosamente selecionados</p>
+                    </div>
+                    <div class="diferencial">
+                        <h4>🛡️ Segurança</h4>
+                        <p>Materiais seguros e certificados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contato-content">
+                <div class="contato-info">
+                    <h3>Fale Conosco</h3>
+                    <p>Estamos aqui para esclarecer suas dúvidas e ajudar você a encontrar o produto ideal.</p>
+                    <div class="contato-item">
+                        <strong>📱 WhatsApp:</strong>
+                        <a href="https://wa.me/5511999999999" target="_blank">(11) 99999-9999</a>
+                    </div>
+                    <div class="contato-item">
+                        <strong>📧 E-mail:</strong>
+                        <a href="mailto:contato@donapimentinha.com">contato@donapimentinha.com</a>
+                    </div>
+                    <div class="contato-item">
+                        <strong>🕒 Atendimento:</strong>
+                        <span>Segunda a Sexta, 9h às 18h</span>
+                    </div>
+                </div>
+                <form class="contato-form" id="contato-form">
+                    <div class="form-group">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span class="checkmark"></span>
+                            Quero receber novidades e promoções exclusivas
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🌶️ Dona Pimentinha</h3>
+                    <p>Apimentando seus desejos com discrição e qualidade.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Políticas</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="WhatsApp">📱</a>
+                        <a href="#" aria-label="E-mail">📧</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dona Pimentinha. Todos os direitos reservados. | Conteúdo destinado a maiores de 18 anos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
