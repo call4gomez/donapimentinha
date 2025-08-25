@@ -39,15 +39,20 @@
             </div>
         </nav>
     </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h2 class="hero-title">Apimente seus desejos mais intensos</h2>
-            <p class="hero-subtitle">Descubra nossa coleção exclusiva de artigos íntimos com total discrição e qualidade premium</p>
-            <button class="cta-button" onclick="document.getElementById('produtos').scrollIntoView({behavior: 'smooth'})">Explorar Produtos</button>
+    <!-- Seção Finalizar Pedido -->
+    <section class="finalize-order">
+        <div class="container">
+            <div class="finalize-content">
+                <h2>🔥 OFERTA ESPECIAL! 🔥</h2>
+                <p>⚡ Compra Reservada 4376897 <strong>FRETE GRÁTIS</strong> e <strong>20% OFF</strong>! ⚡</p>
+                <a href="checkout.html" class="btn-finalize">
+                    🛒 JULIO - FINALIZE SEU PEDIDO CLICANDO AQUI! 🔥
+                </a>
+                <div style="margin-top: 1rem; color: rgba(255,255,255,0.9); font-size: 0.9rem;">
+                    🔒 Compra 100% Segura | 📦 Entrega Discreta | 💳 PIX ou Cartão
+                </div>
+            </div>
         </div>
-        <div class="hero-background"></div>
     </section>
 
     <!-- Produtos Section -->
@@ -59,7 +64,8 @@
                     <div class="produto-image">
                         <img src="https://loungerieqa.vtexassets.com/arquivos/ids/600152/Algemas-com-Conector-em-Couro-Rosa.png' viewBox='0 0 300 200'%3E%3Crect fill='%23f0f0f0' width='300' height='200'/%3E%3Ctext x='150' y='100' text-anchor='middle' fill='%23666' font-family='Arial' font-size='14'%3EAlgemas de Couro%3C/text%3E%3C/svg%3E" alt="Algemas de Couro Premium">
                         <div class="produto-overlay">
-                            <button class="btn-detalhes">Mais Detalhes</button>
+                            <button class="btn-detalhes" onclick="openProductModal(this)">Ver Detalhes</button>
+                            <a href="checkout.html" class="btn-secondary">Comprar Agora</a>
                         </div>
                     </div>
                     <div class="produto-info">
@@ -141,6 +147,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- Sobre Section -->
     <section id="sobre" class="sobre">

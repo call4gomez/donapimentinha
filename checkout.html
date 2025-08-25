@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Finalização de Pedido - Dona Pimentinha">
+    <title>Finalizar Pedido - Dona Pimentinha</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FF4500' d='M50 10c-8 0-15 6-15 15 0 12 8 20 15 25 7-5 15-13 15-25 0-9-7-15-15-15z'/%3E%3Cpath fill='%23D2691E' d='M45 85c0-15 5-25 5-25s5 10 5 25c0 8-5 8-5 8s-5 0-5-8z'/%3E%3C/svg%3E">
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 50px;
+            min-height: 100vh;
+        }
+        
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .checkout-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .checkout-subtitle {
+            color: var(--gray-medium);
+            font-size: 1.1rem;
+        }
+        
+        .checkout-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+        
+        .cart-section {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .item-details {
+            flex: 1;
+        }
+        
+        .item-name {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .item-description {
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .quantity-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 0.5rem;
+        }
+        
+        .item-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff4444;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            transition: var(--transition);
+        }
+        
+        .remove-item:hover {
+            transform: scale(1.2);
+        }
+        
+        .summary-section {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+        
+        .summary-title {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+        
+        .summary-row.total {
+            border-top: 2px solid var(--primary-color);
+            padding-top: 1rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        .payment-section {
+            margin-top: 2rem;
+        }
+        
+        .payment-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .payment-option:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .payment-option.selected {
+            border-color: var(--primary-color);
+            background: rgba(255, 69, 0, 0.1);
+        }
+        
+        .payment-option input[type="radio"] {
+            margin-right: 1rem;
+        }
+        
+        .payment-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .payment-info {
+            flex: 1;
+        }
+        
+        .payment-name {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .payment-desc {
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: var(--transition);
+        }
+        
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .checkout-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        
+        .security-info {
+            background: var(--gray-light);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--gray-medium);
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .item-quantity {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .summary-section {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>🌶️ Dona Pimentinha</h1>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#produtos" class="nav-link">Produtos</a>
+                    <a href="index.html#sobre" class="nav-link">Sobre</a>
+                    <a href="index.html#contato" class="nav-link">Contato</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="checkout-container">
+        <a href="index.html" class="back-link">
+            ← Voltar às compras
+        </a>
+        
+        <div class="checkout-header">
+            <h1 class="checkout-title">Finalizar Pedido</h1>
+            <p class="checkout-subtitle">Revise seus itens e escolha a forma de pagamento</p>
+        </div>
+        
+        <div class="checkout-content">
+            <div class="cart-section">
+                <h2>Seus Produtos</h2>
+                
+                <div class="cart-item" data-price="149.90">
+                    <div class="item-image">
+                        <img src="https://images.tcdn.com.br/img/img_prod/967123/algema_luxo_veludo_5033_1_5126080f9bb6181636ab7df72ec75e90.png" alt="Algema de Veludo Rosa">
+                    </div>
+                    <div class="item-details">
+                        <div class="item-name">Algema de Veludo Rosa</div>
+                        <div class="item-description">Algema luxuosa em veludo macio rosa para momentos especiais</div>
+                        <div class="item-quantity">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" readonly>
+                                <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-price">R$ 149,90</div>
+                    <button class="remove-item" onclick="removeItem(this)">🗑️</button>
+                </div>
+                
+                <div class="cart-item" data-price="89.90">
+                    <div class="item-image">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_711240-MLB78046971922_082024-O.webp" alt="Calcinha de Coelinha">
+                    </div>
+                    <div class="item-details">
+                        <div class="item-name">Calcinha de Coelinha</div>
+                        <div class="item-description">Calcinha sensual de coelinha com rabinho fofo</div>
+                        <div class="item-quantity">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" readonly>
+                                <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-price">R$ 89,90</div>
+                    <button class="remove-item" onclick="removeItem(this)">🗑️</button>
+                </div>
+                
+                <div class="cart-item" data-price="179.90">
+                    <div class="item-image">
+                        <img src="https://cdn.iset.io/assets/66687/produtos/20359/thumb_600-600-c60042e18be35e842cc631d1ca51ee5567100b262557e.png" alt="Chicote de Couro Largo">
+                    </div>
+                    <div class="item-details">
+                        <div class="item-name">Chicote de Couro Largo</div>
+                        <div class="item-description">Chicote premium em couro legítimo com tiras largas</div>
+                        <div class="item-quantity">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" readonly>
+                                <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-price">R$ 179,90</div>
+                    <button class="remove-item" onclick="removeItem(this)">🗑️</button>
+                </div>
+                
+                <div class="cart-item" data-price="129.90">
+                    <div class="item-image">
+                        <img src="https://maxfesta.vtexassets.com/arquivos/ids/174320/chicote-de-couro-preto.jpg" alt="Chicote Sensorial">
+                    </div>
+                    <div class="item-details">
+                        <div class="item-name">Chicote Sensorial</div>
+                        <div class="item-description">Chicote de múltiplas tiras para experiências sensoriais intensas</div>
+                        <div class="item-quantity">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" readonly>
+                                <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-price">R$ 129,90</div>
+                    <button class="remove-item" onclick="removeItem(this)">🗑️</button>
+                </div>
+                
+                <div class="cart-item" data-price="59.90">
+                    <div class="item-image">
+                        <img src="https://www.inusual.com.br/cdn/shop/files/VelaAromaticaFigoeRosas1.png" alt="Vela Sensorial">
+                    </div>
+                    <div class="item-details">
+                        <div class="item-name">Vela Sensorial</div>
+                        <div class="item-description">Vela aromática de baixa temperatura para jogos sensoriais</div>
+                        <div class="item-quantity">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                <input type="number" class="quantity-input" value="2" min="1" readonly>
+                                <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-price">R$ 119,80</div>
+                    <button class="remove-item" onclick="removeItem(this)">🗑️</button>
+                </div>
+            </div>
+            
+            <div class="summary-section">
+                <h3 class="summary-title">Resumo do Pedido</h3>
+                
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">R$ 669,40</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Frete:</span>
+                    <span id="shipping">R$ 15,00</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Desconto:</span>
+                    <span id="discount" style="color: #4CAF50;">-R$ 20,00</span>
+                </div>
+                
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">R$ 664,40</span>
+                </div>
+                
+                <div class="payment-section">
+                    <h4 class="payment-title">Forma de Pagamento</h4>
+                    
+                    <div class="payment-options">
+                        <label class="payment-option" for="pix">
+                            <input type="radio" id="pix" name="payment" value="pix" checked>
+                            <div class="payment-icon">📱</div>
+                            <div class="payment-info">
+                                <div class="payment-name">PIX</div>
+                                <div class="payment-desc">Pagamento instantâneo e seguro</div>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option" for="debit">
+                            <input type="radio" id="debit" name="payment" value="debit">
+                            <div class="payment-icon">💳</div>
+                            <div class="payment-info">
+                                <div class="payment-name">Cartão de Débito</div>
+                                <div class="payment-desc">Débito em conta corrente</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="checkout-btn" onclick="processPayment()">
+                    🔒 Finalizar Compra
+                </button>
+                
+                <div class="security-info">
+                    🛡️ Compra 100% segura e discreta<br>
+                    Seus dados estão protegidos
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Atualizar quantidade
+        function updateQuantity(button, change) {
+            const quantityInput = button.parentNode.querySelector('.quantity-input');
+            const currentQuantity = parseInt(quantityInput.value);
+            const newQuantity = Math.max(1, currentQuantity + change);
+            
+            quantityInput.value = newQuantity;
+            updateItemPrice(button.closest('.cart-item'), newQuantity);
+            updateSummary();
+        }
+        
+        // Atualizar preço do item
+        function updateItemPrice(cartItem, quantity) {
+            const basePrice = parseFloat(cartItem.dataset.price);
+            const newPrice = basePrice * quantity;
+            const priceElement = cartItem.querySelector('.item-price');
+            priceElement.textContent = `R$ ${newPrice.toFixed(2).replace('.', ',')}`;
+        }
+        
+        // Remover item
+        function removeItem(button) {
+            if (confirm('Tem certeza que deseja remover este item?')) {
+                button.closest('.cart-item').remove();
+                updateSummary();
+            }
+        }
+        
+        // Atualizar resumo
+        function updateSummary() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            let subtotal = 0;
+            
+            cartItems.forEach(item => {
+                const price = parseFloat(item.querySelector('.item-price').textContent.replace('R$ ', '').replace(',', '.'));
+                subtotal += price;
+            });
+            
+            const shipping = 15.00;
+            const discount = 20.00;
+            const total = subtotal + shipping - discount;
+            
+            document.getElementById('subtotal').textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+            document.getElementById('total').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+        
+        // Processar pagamento
+        function processPayment() {
+            const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+            const total = document.getElementById('total').textContent;
+            
+            const button = document.querySelector('.checkout-btn');
+            button.disabled = true;
+            button.innerHTML = '<span class="loading"></span> Processando...';
+            
+            setTimeout(() => {
+                if (selectedPayment === 'pix') {
+                    showPixPayment(total);
+                } else {
+                    showDebitPayment(total);
+                }
+            }, 2000);
+        }
+        
+        // Mostrar pagamento PIX
+        function showPixPayment(total) {
+            alert(`Pagamento PIX\n\nTotal: ${total}\n\nCódigo PIX será enviado por WhatsApp para finalizar a compra.\n\nObrigado pela preferência!`);
+            window.location.href = 'https://wa.me/5511999999999?text=Olá! Gostaria de finalizar minha compra via PIX no valor de ' + encodeURIComponent(total);
+        }
+        
+        // Mostrar pagamento débito
+        function showDebitPayment(total) {
+            alert(`Pagamento no Débito\n\nTotal: ${total}\n\nVocê será redirecionado para o WhatsApp para finalizar a compra.\n\nObrigado pela preferência!`);
+            window.location.href = 'https://wa.me/5511999999999?text=Olá! Gostaria de finalizar minha compra no cartão de débito no valor de ' + encodeURIComponent(total);
+        }
+        
+        // Selecionar forma de pagamento
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Menu mobile
+        document.getElementById('hamburger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.payment-option').classList.add('selected');
+        });
+    </script>
+</body>
+</html>
